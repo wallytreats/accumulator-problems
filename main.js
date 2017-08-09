@@ -3,17 +3,15 @@
 SAMPLE
 ----------------------------------------
 
-Challenge: Write function named test that returns the string "This Works!". 
-Solution: This one has already been complete for you. 
+Challenge: Write function named test that returns the string "This Works!".
+Solution: This one has already been complete for you.
 
 */
 
 function test() {
- var string ="This Works!";
+ var string = "This Works!";
  return string;
 }
-
-
 
 /*
 ----------------------------------------
@@ -25,13 +23,20 @@ Write function named sum that will take an array of numbers and return the sum o
 Example: if you pass it [1,2,3] then it should return 6 (which is 1 + 2 + 3)
 */
 
+// function sum (arr) {
+//   var results = 0;
+//   for (i=0; i < arr.length; i++){
+//     results += arr[i]; // results = results + array[i]
+//   }
+//   return results;
+// }
 
-
-
-
-
-
-
+function sum (arr) {
+  var results = arr.reduce(function (acc, curr){
+    return acc + curr;
+  }, 0);
+  return results;
+}
 
 /*
 ----------------------------------------
@@ -43,11 +48,13 @@ Write function named doubleNumbers that will take an array of numbers and return
 Example: if you pass it [1,2,3] then it should return [2,4,6]
 */
 
-
-
-
-
-
+function doubleNumbers (array) {
+  var results = [];
+  for (i=0; i < array.length; i++){
+    results.push(array[i] * 2);
+  }
+  return results;
+}
 
 
 
@@ -65,13 +72,13 @@ Examples:
 - if you call multiplyNumbers([1,2,3], 5) you'd get [5,10,15]
 */
 
-
-
-
-
-
-
-
+function multiplyNumbers (arr, num) {
+  var newArr = [];
+  for (i=0; i < arr.length; i++){
+    newArr.push(arr[i] * num);
+  }
+  return newArr;
+}
 
 /*
 ----------------------------------------
@@ -83,14 +90,13 @@ Write function named doubleLetters that will take a string and double every lett
 Example: if you pass it "abc" then it should return "aabbcc"
 */
 
-
-
-
-
-
-
-
-
+function doubleLetters (str) {
+  var output = '';
+    for (i=0; i < str.length; i++){
+      output += (str[i] + str[i]);
+    }
+  return output;
+}
 
 /*
 ----------------------------------------
@@ -104,15 +110,14 @@ Example: if you pass it ["a", "b", "c"] and ["d", "e", "f"] then it should retur
 NOTE: you can assume each input will be the same length
 */
 
-
-
-
-
-
-
-
-
-
+function interleave (arr1, arr2) {
+  var newArr = [];
+  arr2.forEach(function (el, index, ar){
+    newArr.push(arr1[index]);
+    newArr.push(arr2[index]);
+  });
+  return newArr;
+}
 
 /*
 ----------------------------------------
@@ -124,12 +129,13 @@ Write function named createRange that will take a number and a default value and
 Example: if you pass it 4 and "Hello" then it should return ["Hello", "Hello", "Hello", "Hello"]
 */
 
-
-
-
-
-
-
+function createRange (num, str) {
+  var range = [];
+  for (i=0; i < num; i++){
+    (range.push(str)) * num;
+  }
+  return range;
+}
 
 /*
 ----------------------------------------
@@ -143,11 +149,14 @@ Example:
 If you pass it ["quick", "brown", "fox"] then it should return { "quick": 0, "brown": 1, "fox": 2 }
 */
 
-
-
-
-
-
+function flipArray (arr) {
+  var newObj = {};
+  for (i=0; i < arr.length; i++){
+      var key = arr[i];
+    newObj[key] = i;
+  }
+  return newObj;
+}
 
 
 /*
@@ -162,13 +171,13 @@ Example:
 If you pass it [[2014, "Horse"], [2015, "Sheep"]] then it should return { 2014: "Horse", 2015: "Sheep" }
 
 */
-
-
-
-
-
-
-
+function arraysToObject (arr) {
+  var obj = {};
+  for (i=0; i < arr.length; i++){
+    obj[arr[i][0]] = arr[i][1];
+  }
+  return obj;
+}
 
 
 /*
@@ -183,16 +192,12 @@ Example:
 If you pass it "hello" then it should return "olleh"
 */
 
-
-
-
-
-
-
-
-
-
-
+function reverseString(string) {
+  var str = '';
+  for (var i = string.length - 1; i >= 0; i--)
+    str += string[i];
+  return str;
+}
 
 /*
 ----------------------------------------
@@ -208,12 +213,15 @@ If you pass it "yay" then it should return false because it's odd
 If you pass it "heehaw" then it should return false because "hee" doesn't equal "haw"
 */
 
-
-
-
-
-
-
+function repeats(str) {
+  if (str.length === 0){
+    return true;
+  } else {
+    var something = /^([a-z])\1+$/;
+    var result = something.test(str);
+    return result;
+  }
+}
 
 /*
 ----------------------------------------
@@ -794,4 +802,4 @@ If you pass {1999: 4036, 2000: 7654} and 4036, it should return true
 
 
 
-// 
+//
